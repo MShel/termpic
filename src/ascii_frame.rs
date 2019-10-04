@@ -1,5 +1,5 @@
 extern crate image;
-extern crate  terminal_size;
+extern crate terminal_size;
 
 pub mod ascii_frame {
     use super::image;
@@ -39,12 +39,7 @@ pub mod ascii_frame {
             term_symbols_cache: &mut std::collections::HashMap<image::Rgba<u8>,String>
             ) -> String {
         let rgb_arr = turn_pixel_to_arr(pixel);
-        //setting font- color
-        let mut ascii_symb = String::from("\x1B[38;2;");
-        ascii_symb+=&String::from(format!("{};{};{}",pixel[0],pixel[1],pixel[2]));
-        ascii_symb+=&String::from("m");
-        //setting background - color 
-        ascii_symb+= &String::from("\x1B[48;2;");
+        let mut ascii_symb = String::from("\x1B[48;2;");
         ascii_symb+= &String::from(format!("{};{};{}",pixel[0],pixel[1],pixel[2]));
         ascii_symb+= &String::from("m");
         ascii_symb+= &get_ascii_for_rgb_arr(rgb_arr).to_string();
