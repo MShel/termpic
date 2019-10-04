@@ -35,9 +35,9 @@ fn open_image(params: Vec<String>) {
 fn get_usage() -> String {
     let usage:String = String::from("
         Usage: \n
-        picview {filename} \n
+        termpic {filename} \n
         === \n
-        Ex. picview example.png 
+        Ex. termpic example.png 
     ");
     usage
 }
