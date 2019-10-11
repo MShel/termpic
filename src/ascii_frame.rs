@@ -53,8 +53,8 @@ pub mod ascii_frame {
     }
 
     pub fn  get_ascii_for_rgb_arr(rgb_color:[f64;3]) -> char {
-        let char_vec:Vec<char> = "MNHQ$OC?7>!:-;. ".chars().collect();
+        let chars = b"MNHQ$OC?7>!:-;. ";
         let luminosity:f64 = 0.21 * rgb_color[0]+ 0.72 * rgb_color[1] + 0.07 * rgb_color[2];
-        return char_vec[( luminosity / 256.0 * char_vec.len() as f64) as usize];
+        return chars[( luminosity / 256.0 * chars.len() as f64) as usize] as char;
     }
 }
